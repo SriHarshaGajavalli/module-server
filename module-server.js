@@ -95,16 +95,7 @@ function makeServer(graph, modules) {
   }
 };
 
-/**
- * Make a module server that serves JS from memory and loads it from disk.
- * @param {string} pathPrefix Directory where JS files can be found. JS files
- *     are expected to be pathPrefix + name + '.js'
- * @param {string} graphFilename Filename of a module graph serialization.
- * @param {function(Error,function(Array.<string>,Array.<string>,
- *     function(Error,number,string),Object))} initCompleteCb Callback to be
- *     fired when the server is ready.
- * @return {*}
- */
+
 exports.from = function(pathPrefix, graphFilename, initCompleteCb) {
   require('./module-graph').fromFilename(graphFilename, function(err, graph) {
     if (err) {
